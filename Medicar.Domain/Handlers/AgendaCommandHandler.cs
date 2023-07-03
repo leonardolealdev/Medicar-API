@@ -40,6 +40,9 @@ namespace Medicar.Domain.Handlers
             if (horario is null)
                 return new GenericoCommand(false, "Horário não encontrado", null );
 
+            if (horario.DataAgendamento is not null)
+                return new GenericoCommand(false, "Horário com consulta já agendada", null);
+
             horario.Agendar();
             await _repository.AtualizarHorario(horario);
             await _trelloService.CriarCard(horario.Hora, horario.Agenda.Medico.Nome);
