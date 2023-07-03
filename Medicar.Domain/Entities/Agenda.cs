@@ -15,7 +15,7 @@ namespace Medicar.Domain.Entities
         public Guid MedicoId { get; private set; }
         [Column(TypeName = "Date")]
         public DateTime Dia { get; private set; }
-        public Medico Medico { get; private set; }
+        public Medico Medico { get; set; }
         public List<Horario> Horarios { get; private set; } = new List<Horario>();
 
         public void AdicionarHorarios(CriarAgendaCommand command)

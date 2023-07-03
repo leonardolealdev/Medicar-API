@@ -1,6 +1,6 @@
 ﻿using Medicar.Domain.Commands;
 using Medicar.Domain.Handlers;
-using Medicar.Domain.Interfaces.Repository;
+using Medicar.Domain.Interfaces.Repositories;
 using Moq;
 using System.Reflection.Metadata;
 
@@ -9,7 +9,7 @@ namespace Medicar.Tests.HandlerTests
     public class MedicoCommandHandlerTest
     {
         [Fact]
-        public async void CriarMedico_Sucesso()
+        public async Task CriarMedico_Sucesso()
         {
             var command = new CriarMedicoCommand("Teste médico", 12345);
             Mock<IMedicoRepository> mockMedicoRepository = new Mock<IMedicoRepository>();
@@ -20,7 +20,7 @@ namespace Medicar.Tests.HandlerTests
         }
 
         [Fact]
-        public async void CriarMedico_Falha_MedicoExistente()
+        public async Task CriarMedico_Falha_MedicoExistente()
         {
             var command = new CriarMedicoCommand("Teste médico", 12345);
             Mock<IMedicoRepository> mockMedicoRepository = new Mock<IMedicoRepository>();

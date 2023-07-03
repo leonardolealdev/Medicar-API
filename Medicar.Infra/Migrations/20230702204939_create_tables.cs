@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Medicar.Infra.Migrations
 {
     /// <inheritdoc />
-    public partial class createtables : Migration
+    public partial class create_tables : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -78,6 +78,9 @@ namespace Medicar.Infra.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
+
             migrationBuilder.DropTable(
                 name: "Horarios");
 

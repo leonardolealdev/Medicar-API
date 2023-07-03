@@ -1,5 +1,5 @@
 ﻿using Medicar.Domain.Entities;
-using Medicar.Domain.Interfaces.Repository;
+using Medicar.Domain.Interfaces.Repositories;
 using Medicar.Domain.Query;
 using Medicar.Domain.Responses;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +17,7 @@ namespace Medicar.Infra.Data.Repositories
             return await _dbContext.Agendas.AnyAsync(x => x.Dia == dia.Date && x.MedicoId == medicoId);
         }
 
-        public async Task<Horario> GetHorario(Guid id) => await _dbContext.Horarios.Include(x => x.Agenda).FirstOrDefaultAsync(x => x.Id == id);
+        public async Task<Horario> GetHorario(Guid id) => await _dbContext.Horarios.Include(x => x.Agenda).Include(x => x.Agenda.Medico).FirstOrDefaultAsync(x => x.Id == id);
 
         public async Task AtualizarHorario(Horario horario)
         {

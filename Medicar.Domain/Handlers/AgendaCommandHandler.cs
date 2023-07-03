@@ -1,7 +1,8 @@
 ﻿using MediatR;
 using Medicar.Domain.Commands;
 using Medicar.Domain.Entities;
-using Medicar.Domain.Interfaces.Repository;
+using Medicar.Domain.Interfaces.Repositories;
+using Medicar.Domain.Interfaces.Services;
 
 namespace Medicar.Domain.Handlers
 {
@@ -11,11 +12,14 @@ namespace Medicar.Domain.Handlers
         IRequestHandler<DesmarcarConsultaCommand, GenericoCommand>
     {
         private readonly IAgendaRepository _repository;
+        private readonly ITrelloService _trelloService;
 
-        public AgendaCommandHandler(IAgendaRepository repository)
+        public AgendaCommandHandler(IAgendaRepository repository, ITrelloService trelloService)
         {
             _repository = repository;
+            _trelloService = trelloService;
         }
+        
 
         public async Task<GenericoCommand> Handle(CriarAgendaCommand request, CancellationToken cancellationToken)
         {
@@ -38,6 +42,7 @@ namespace Medicar.Domain.Handlers
 
             horario.Agendar();
             await _repository.AtualizarHorario(horario);
+            await _trelloService.CriarCard(horario.Hora, horario.Agenda.Medico.Nome);
             return new GenericoCommand(true, "Consulta marcada com sucesso", null);
         }
 

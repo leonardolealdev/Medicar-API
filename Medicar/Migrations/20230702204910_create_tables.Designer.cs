@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Medicar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230629210306_create-tables-usuario")]
-    partial class createtablesusuario
+    [Migration("20230702204910_create_tables")]
+    partial class create_tables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

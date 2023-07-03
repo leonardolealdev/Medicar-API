@@ -7,6 +7,19 @@
             Hora = hora;
         }
 
+        public Horario(TimeSpan hora, DateTime dia, Guid medicoId)
+        {
+            Hora = hora;
+            Agenda = new Agenda(medicoId, dia);
+        }
+
+        public Horario(TimeSpan hora, DateTime dia, Guid medicoId, string nomeMedico, int crmMedico, string emailMedico)
+        {
+            Hora = hora;
+            Agenda = new Agenda(medicoId, dia);
+            Agenda.Medico = new Medico(nomeMedico, crmMedico, emailMedico);
+        }
+
         public Guid AgendaId { get; private set; }
         public TimeSpan Hora { get; private set; }
         public DateTime? DataAgendamento { get; private set; }

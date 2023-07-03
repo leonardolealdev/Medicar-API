@@ -1,7 +1,9 @@
 ﻿using FluentValidation.AspNetCore;
 using Medicar.Configuration;
 using Medicar.Domain;
+using Medicar.Extensions;
 using Medicar.Infra.Data;
+using Medicar.Infra.Services;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
@@ -29,6 +31,11 @@ namespace Medicar
             //Entity
             var settings = Configuration.GetSection("ConnectionStrings").Get<ConnectionStrings>();
             Variables.DefaultConnection = settings.DefaultConnection;
+
+            //Trello
+            var trelloSettings = new TrelloSettings();
+            Configuration.GetSection("TrelloSettings").Bind(trelloSettings);
+            services.AddSingleton(trelloSettings);
 
             services.AddDbContext<MedicarDbContext>(options =>
             {

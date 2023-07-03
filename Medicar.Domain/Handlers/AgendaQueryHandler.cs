@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Medicar.Domain.Commands;
-using Medicar.Domain.Interfaces.Repository;
+using Medicar.Domain.Interfaces.Repositories;
 using Medicar.Domain.Query;
 using Medicar.Domain.Responses;
 

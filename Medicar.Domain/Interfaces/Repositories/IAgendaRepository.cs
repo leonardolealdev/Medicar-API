@@ -1,7 +1,7 @@
 ﻿using Medicar.Domain.Entities;
 using Medicar.Domain.Query;
 
-namespace Medicar.Domain.Interfaces.Repository
+namespace Medicar.Domain.Interfaces.Repositories
 {
     public interface IAgendaRepository : IRepository<Agenda>
     {

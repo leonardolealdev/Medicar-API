@@ -1,5 +1,5 @@
 ﻿using Medicar.Domain.Entities;
-using Medicar.Domain.Interfaces.Repository;
+using Medicar.Domain.Interfaces.Repositories;
 
 namespace Medicar.Infra.Data.Repositories
 {

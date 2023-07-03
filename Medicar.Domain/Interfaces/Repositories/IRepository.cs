@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace Medicar.Domain.Interfaces.Repository
+namespace Medicar.Domain.Interfaces.Repositories
 {
     public interface IRepository<T> where T : class
     {

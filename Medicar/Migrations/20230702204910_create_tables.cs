@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Medicar.Migrations
 {
     /// <inheritdoc />
-    public partial class createtablesusuario : Migration
+    public partial class create_tables : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -1,4 +1,4 @@
-﻿using Medicar.Domain.Interfaces.Repository;
+﻿using Medicar.Domain.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Medicar.Infra.Data.Repositories
