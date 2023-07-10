@@ -11,6 +11,7 @@ API de agendamento de consultas médicas desenvolvida com .NET 6
 - Swagger Documentation
 - Identity
 - ApiVersioning
+- Integração com o Trello
 
 
 ## Author
@@ -33,6 +34,8 @@ API de agendamento de consultas médicas desenvolvida com .NET 6
 
 ## 7. Projeto funcionando!
 
-Obs: Necessário ter PostgreSql intalado com versão maior ou igual a 10
+Obs 1: Necessário ter PostgreSql intalado com versão maior ou igual a 10
+
+Obs 2: Link do board do trello -> https://trello.com/b/43p4oI0Z/medicar
 
 
